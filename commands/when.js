@@ -1,0 +1,4 @@
+exports.run = (client, message, args) => {
+
+  message.channel.send("__**When does <x> come out?**__ \nThere's two possible ways of answering this, depending on the required accuracy:\n__General estimate__ - find <x>'s time of appearance in JP (all of the wikis have this info), and add two years to get the expected NA date. Obviously, this can be occasionally faulty, such as some NY banners getting moved to Thanksgiving, but it's the best we can do.\n__Precise time__ - if there's no time in either <#434188013401145354> or in the in-game announcements, then we don't know. Any information you find outside of those that doesn't list sources is either working off of an educated guess, or mistaken.\n\n__Common <x> examples include:__ GSSR, events, free SR tickets");
+};

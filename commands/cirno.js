@@ -3,18 +3,19 @@ const cheerio = require('cheerio'),
       querystring = require('querystring');
 exports.run = (client, message, args) => {
 
-   var searchUrl = `https://www.google.com/search?q=site:http://fate-go.cirnopedia.org+${encodeURIComponent(message.content)}`;
+    args.shift;
+   var searchUrl = `https://www.bing.com/search?q=site%3Afate-go.cirnopedia.org+${encodeURIComponent(args.join(" "))}`;
 
    return snekfetch.get(searchUrl).then((result) => {
 
       var $ = cheerio.load(result.text);
 
-      var googleData = $('.r').first().find('a').first().attr('href');
+      var googleData = $('li.b_algo').first().find('a').first().attr('href');
 
-      googleData = querystring.parse(googleData.replace('/url?', ''));
-      message.channel.send(`Result found!\n<${googleData.q}>`).catch(console.error);
+      message.channel.send(`Result found!\n<${googleData.replace(')', '%29').replace('(', '%28')}>`).catch(console.error);
 
   }).catch((err) => {
-    message.channel.send(`No results found for ${encodeURIComponent(args.content)}`);
+    console.log(err);
+    message.channel.send(`Error finding result for ${searchUrl}`);
   });
 }

@@ -17,7 +17,7 @@ if (name.match(/[^a-z0-9]/g) == null) {
 		});
 
     } else {
-      message.channel.send(`Entry already exists for ${encodeURIComponent(name)}, use edit or delete`);
+      message.channel.send(`Entry already exists for ${encodeURIComponent(name)}`);
     }
   }).catch(() => {
     sql.run(`CREATE TABLE IF NOT EXISTS names (name TEXT,  servantId INTEGER)`).then(() => {
