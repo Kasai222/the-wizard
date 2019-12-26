@@ -23,7 +23,9 @@ client.on("message", message => {
   // This is the best way to define args. Trust me.
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
-
+  if (!command.match(/^[A-Za-z0-9]+$/)) {
+    return;
+  }
   // The list of if/else is replaced with those simple 2 lines:
   try {
     let commandFile = require(`./commands/${command}.js`);
