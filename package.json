@@ -12,7 +12,7 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
     "discord.js": "^11.3.0",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.7",
     "promises": "^0.2.5",
     "querystring": "^0.2.0",
     "snekfetch": "^3.6.4",
